@@ -1,22 +1,24 @@
+import path from 'path'
+import { fileURLToPath } from 'url'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+
+const rootDir = fileURLToPath(new URL('.', import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-})
-
-const path = require('path')
-
-export default {
-  root: path.resolve(__dirname, 'src'),
+  root: rootDir,
   resolve: {
     alias: {
-      '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
-    }
+      '~bootstrap': path.resolve(rootDir, 'node_modules/bootstrap'),
+    },
   },
   server: {
     port: 8080,
-    hot: true
-  }
-}
+    hot: true,
+  },
+  watch: {
+    ignored: ['**/public/assets/fonts/**'],
+  },
+})
