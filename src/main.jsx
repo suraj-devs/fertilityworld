@@ -1,9 +1,11 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
-import '../public/assets/css/style.css'
-import '../public/assets/js/script.js'
+// import bootstrap from 'bootstrap'
+import initFrontendScript from '../public/assets/js/script.js'
+// import './assets/css/style.css'
+
 // import './index.css'
 import App from './App.jsx'
 

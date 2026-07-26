@@ -1,12 +1,18 @@
 import { useState } from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './layout/Header'
+import Footer from './layout/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
-import * as bootstrap from 'bootstrap'
+import Banner from './components/Banner'
+import Treatment from './components/Treatment'
+import CallToAction from './components/CallToAction'
+import ReviewSection from './components/ReviewSection'
 // import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../public/assets/css/style.css'
-import '../public/assets/js/script.js'
+// import '../public/assets/js/script.js'
+import SectionBlock from './components/SectionBlock'
+import CallToActionTwo from './components/CallToActionTwo'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -16,7 +22,13 @@ function App() {
       <Header currentPage={currentPage} onNavigate={setCurrentPage} />
 
       <main className="app-content">
-        {currentPage === 'home' ? <Home /> : <About />}
+        {/* {currentPage === 'home' ? <Home /> : <About />} */}
+        <Banner />
+        <Treatment />
+        <CallToAction />
+        <ReviewSection />
+        <SectionBlock />
+        <CallToActionTwo />
       </main>
 
       <Footer />

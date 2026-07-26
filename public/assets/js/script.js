@@ -1,105 +1,142 @@
-// Navigation bar dropdown
-document.addEventListener('DOMContentLoaded', () => {
-    // Code here runs after DOM content is fully loaded
-    const dropdowns = document.querySelectorAll('.dropdown-list');
-    dropdowns.forEach(dropdown => {
-        const toggleBtn = dropdown.querySelector('.drop-plus');
-        const sublist = dropdown.querySelector('.sublist');
-        dropdown.addEventListener("mouseover", (event) => {
-            const isDropdown = event.currentTarget === event.target;
-            if (isDropdown) {
-                sublist.classList.add('active-list');
-            }
-        });
-        dropdown.addEventListener("mouseleave", () => {
-            sublist.classList.remove('active-list');
-        });
-        if (toggleBtn && sublist) {
-            toggleBtn.addEventListener('click', (event) => {
-                sublist.classList.toggle('active');
-                toggleBtn.textContent = sublist.classList.contains('active') ? '-' : '+';
-                event.stopPropagation(); // Prevent event from bubbling up
-            });
-        } else {
-            console.error('Toggle button or sublist not found in dropdown:', dropdown);
+const initFrontendScript = () =>  {
+    const cleanups = [];
+
+    document.querySelectorAll(".dropdown-list").forEach((dropdown) => {
+        const toggleBtn = dropdown.querySelector(".drop-plus");
+        const sublist = dropdown.querySelector(".sublist");
+
+        if (!sublist) {
+            return;
         }
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            if (sublist) {
-                sublist.classList.remove('active');
-                toggleBtn.textContent = '+';
+
+        const handleMouseOver = (event) => {
+            if (event.currentTarget === event.target) {
+                sublist.classList.add("active-list");
             }
-        });
-        // Prevent closing dropdown when clicking inside
-        dropdown.addEventListener('click', (event) => {
+        };
+
+        const handleMouseLeave = () => {
+            sublist.classList.remove("active-list");
+        };
+
+        const handleToggleClick = (event) => {
+            sublist.classList.toggle("active");
+
+            if (toggleBtn) {
+                toggleBtn.textContent = sublist.classList.contains("active")
+                    ? "-"
+                    : "+";
+            }
+
             event.stopPropagation();
-        });
-    });
-    if (window.innerWidth < 991) {
-        document.querySelector('.main-logo').insertAdjacentHTML('beforeend', `<span class="mobile_m_bar"><i class="fa fa-bars"></i></span>`);
-        document.querySelector('.mobile_m_bar').addEventListener('click', function () {
-            document.querySelector('.header-navbar .menubar').style.opacity = 1;
-            document.querySelector('.header-navbar .menubar').style.left = 0;
-        });
-        document.querySelector('.mobile_menu_bar').addEventListener('click', function () {
-            document.querySelector('.header-navbar .menubar').style.opacity = 0;
-            document.querySelector('.header-navbar .menubar').style.left = -100 + '%';
-        });
-    } else {
-        // change functionality for larger screens
-    }
-    // form active state
-    const formGroups = document.querySelectorAll('.form-group');
-    formGroups.forEach(group => {
-        const input = group.querySelector('input, textarea');
-        input.addEventListener('focus', () => {
-            group.classList.add('active');
-        });
-        input.addEventListener('blur', () => {
-            if (input.value === '') {
-                group.classList.remove('active');
+        };
+
+        const handleDocumentClick = () => {
+            sublist.classList.remove("active");
+
+            if (toggleBtn) {
+                toggleBtn.textContent = "+";
+            }
+        };
+
+        const handleDropdownClick = (event) => {
+            event.stopPropagation();
+        };
+
+        dropdown.addEventListener("mouseover", handleMouseOver);
+        dropdown.addEventListener("mouseleave", handleMouseLeave);
+        dropdown.addEventListener("click", handleDropdownClick);
+        document.addEventListener("click", handleDocumentClick);
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener("click", handleToggleClick);
+        }
+
+        cleanups.push(() => {
+            dropdown.removeEventListener("mouseover", handleMouseOver);
+            dropdown.removeEventListener("mouseleave", handleMouseLeave);
+            dropdown.removeEventListener("click", handleDropdownClick);
+            document.removeEventListener("click", handleDocumentClick);
+
+            if (toggleBtn) {
+                toggleBtn.removeEventListener("click", handleToggleClick);
             }
         });
     });
-    // Navigation bar dropdown End
-    // const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
-    // console.log('All href URLs:', hrefs);
-    const pathname = window.location.href.split('/').pop() || '/';
-    if (pathname === 'https://wecareexport.com' || pathname === '/' || pathname.includes('#contact')) {
-    // if (pathname === 'index.html' || pathname.startsWith('index.html#') || pathname.includes('#contact') || pathname === baseUrl || pathname === '/') {
-        const customeSlide = document.querySelector('.client-testimonials');
-        if (customeSlide) {
-            const swiper = new Swiper(customeSlide, {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 3,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                // pagination: {
-                //     el: ".swiper-pagination",
-                //     clickable: true,
-                // },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                    },
-                }
-                // scrollbar: {el: '.swiper-scrollbar',},
-            });
-        } else {
-            console.error('Customer section not found');
+
+    if (window.innerWidth < 991) {
+        const mainLogo = document.querySelector(".main-logo");
+        const menubar = document.querySelector(".header-navbar .menubar");
+        let mobileButton = document.querySelector(".mobile_m_bar");
+
+        if (mainLogo && menubar && !mobileButton) {
+            mainLogo.insertAdjacentHTML(
+                "beforeend",
+                '<span class="mobile_m_bar"><i class="fa fa-bars"></i></span>',
+            );
+            mobileButton = document.querySelector(".mobile_m_bar");
         }
-        
+
+        const openMenu = () => {
+            menubar.style.opacity = "1";
+            menubar.style.left = "0";
+        };
+
+        const closeMenu = () => {
+            menubar.style.opacity = "0";
+            menubar.style.left = "100%";
+        };
+
+        const closeButton = document.querySelector(".mobile_menu_bar");
+
+        if (mobileButton && menubar) {
+            mobileButton.addEventListener("click", openMenu);
+            cleanups.push(() => {
+                mobileButton.removeEventListener("click", openMenu);
+            });
+        }
+
+        if (closeButton && menubar) {
+            closeButton.addEventListener("click", closeMenu);
+            cleanups.push(() => {
+                closeButton.removeEventListener("click", closeMenu);
+            });
+        }
     }
-});
+
+    document.querySelectorAll(".form-group").forEach((group) => {
+        const input = group.querySelector("input, textarea");
+
+        if (!input) {
+            return;
+        }
+
+        const handleFocus = () => {
+            group.classList.add("active");
+        };
+
+        const handleBlur = () => {
+            if (input.value === "") {
+                group.classList.remove("active");
+            }
+        };
+
+        if (input.value !== "") {
+            group.classList.add("active");
+        }
+
+        input.addEventListener("focus", handleFocus);
+        input.addEventListener("blur", handleBlur);
+
+        cleanups.push(() => {
+            input.removeEventListener("focus", handleFocus);
+            input.removeEventListener("blur", handleBlur);
+        });
+    });
+
+    return () => {
+        cleanups.forEach((cleanup) => cleanup());
+    };
+}
+export default initFrontendScript
+
