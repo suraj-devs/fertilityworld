@@ -65,17 +65,8 @@ const initFrontendScript = () =>  {
     });
 
     if (window.innerWidth < 991) {
-        const mainLogo = document.querySelector(".main-logo");
         const menubar = document.querySelector(".header-navbar .menubar");
         let mobileButton = document.querySelector(".mobile_m_bar");
-
-        if (mainLogo && menubar && !mobileButton) {
-            mainLogo.insertAdjacentHTML(
-                "beforeend",
-                '<span class="mobile_m_bar"><i class="fa fa-bars"></i></span>',
-            );
-            mobileButton = document.querySelector(".mobile_m_bar");
-        }
 
         const openMenu = () => {
             menubar.style.opacity = "1";

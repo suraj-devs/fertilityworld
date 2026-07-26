@@ -7,6 +7,7 @@ const Header = ({ currentPage, onNavigate }) => {
                 <div className="header-container">
                     <div className="header-wrapper">
                         <div className="main-logo">
+                            <span className="mobile_m_bar d-block d-md-none"><i className="fa fa-bars"></i></span>
                             <a href=""><img src="media/we-care-logo.jpg" alt="We Care" width="" height="" /></a>
                             <div className="call-nav d-block d-md-none ">
                                 <div className="d-flex align-items-center">
