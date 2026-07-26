@@ -5,19 +5,6 @@ import { LaurelWreath, TrophyStar, Group, BadgeCheck } from '@boxicons/react';
 function Banner() {
     return (
     <>
-    <section id="camera-sections" className="py-0 py-lg-0 overflow-hidden" hidden>
-        <div className="mainBanner">
-            <div className="container">
-                <div className="video-caption position-relative col-md-5 py-md-5 py-4 px-md-4 px-3 rounded-4">
-                    <h2 className="mb-4"><span className="fw-light">We Care India Top 10</span> <span className="d-none d-lg-block"></span><strong className="fw-bolder">Exporter Company from India</strong></h2>
-                    <p>We are a leading company from India, committed to excellence and innovation across diverse sectors. With a strong foundation of trust and quality, we cater to global markets, offering top-tier products, services, and solutions.From being a major exporter to promoting world-className medical tourism and enhancing e-commerce within India, our mission is to deliver value, bridge borders, and drive growth.</p>
-                    <div className="d-flex align-items-center mt-4 flex-wrap gap-3">
-                        <Button />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="camera-section" className="main-slider position-relative py-4 py-lg-5">
         <div className="container py-4 py-lg-5">
             <div className="row row-cols-1 row-cols-md-2">
@@ -25,7 +12,7 @@ function Banner() {
                     <div className="banner-content">
                         <div className="section-header">
                             <span className="srv-subtitle mb-3 border p-2 rounded-3 d-inline-flex bg-white gap-2"><LaurelWreath /> India's Most Trusted Fertility & Surrogacy Expert</span>
-                            <h1 className="mb-2">Building Families, Creating Happiness</h1>
+                            <h1 className="mb-2">Building Families Creating Happiness Advanced fertility</h1>
                             <p>Advanced fertility treatments, world-class technology and personalized care to help you achieve your parenthood dreams.</p>
                         </div>
                         <div className="row row-cols-1 row-cols-md-1 row-cols-lg-3 mb-3 g-3">
