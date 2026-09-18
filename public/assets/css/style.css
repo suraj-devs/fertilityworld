@@ -239,7 +239,7 @@ header{
         }
     }
 }
-.counterCTA_block2{ background: linear-gradient(45deg, rgb(var(--color-primary-green)  / 90%), rgb(var(--color-primary-green)  / 50% ), rgb(var(--color-primary-green) / 90%)), url(../../media/cta-banner-2.jpg) no-repeat center/cover;background-position: 0% 75%;}
+.counterCTA_block2{ background: linear-gradient(45deg, rgb(var(--color-primary-green)  / 90%), rgb(var(--color-primary-green)  / 50% ), rgb(var(--color-primary-green) / 90%)), url(/media/cta-banner-2.jpg) no-repeat center/cover;background-position: 0% 75%;}
 /* Counter CTA End */
 
 

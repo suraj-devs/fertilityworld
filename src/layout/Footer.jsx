@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-md-3">
                         <div className="footer_info footer-col h-100">
-                            <img src="./media/we-care-logo.png" alt="Logo" className="img-fluid mb-3" width="180" />
+                            <img src="/media/we-care-logo.png" alt="Fertility World logo" className="img-fluid mb-3" width="180" />
                             <h5>Fertility World</h5>
                             <p>Buliding families and creating happiness through advanced fertility treatments and compassionate care.</p>
                         </div>
@@ -17,24 +17,19 @@ const Footer = () => {
                             <div className="col footer-col">
                                 <h5>Treatments</h5>
                                 <ul>
-                                    <li><a href="#">IVF Treatment</a></li>
-                                    <li><a href="#">ICSI Treatment</a></li>
-                                    <li><a href="#">IUll Treatment</a></li>
-                                    <li><a href="#">Egg Freezing</a></li>
-                                    <li><a href="#">Donor Program</a></li>
-                                    <li><a href="#">All Treatments</a></li>
+                                    <li><a href="/service/ivf">IVF Treatment</a></li>
+                                    <li><a href="/service/icsi">ICSI Treatment</a></li>
+                                    <li><a href="/service/iui">IUI Treatment</a></li>
+                                    <li><a href="/service/egg-freezing">Egg Freezing</a></li>
+                                    <li><a href="/service/donor-programs">Donor Program</a></li>
+                                    <li><a href="/services">All Treatments</a></li>
                                 </ul>
                             </div>
                             <div className="col footer-col">
                                 <h5>Surrogacy</h5>
                                 <ul>
-                                    <li><a href="#">Surrogacy</a></li>
-                                    <li><a href="#">International Surrogacy</a></li>
-                                    <li><a href="#">Indian Surrogacy</a></li>
-                                    <li><a href="#">Dubal</a></li>
-                                    <li><a href="#">LGBTQ Surrogacy</a></li>
-                                    <li><a href="#">Nepal</a></li>
-                                    <li><a href="#">Surrogacy Law</a></li>
+                                    <li><a href="/service/surrogacy">Surrogacy Programs</a></li>
+                                    <li><a href="/success-stories">Patient Stories</a></li>
                                 </ul>
                             </div>
                             <div className="col footer-col">
@@ -49,13 +44,11 @@ const Footer = () => {
                             <div className="col footer-col">
                                 <h5>Quick Links</h5>
                                 <ul>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Our Doctors</a></li>
-                                    <li><a href="#">Success Stories</a></li>
-                                    <li><a href="#">Blog</a></li>
-                                    <li><a href="#">Appointment</a></li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="/contact">Contact Us</a></li>
+                                    <li><a href="/about">About Us</a></li>
+                                    <li><a href="/success-stories">Success Stories</a></li>
+                                    <li><a href="/blog-list">Blog</a></li>
+                                    <li><a href="/pricing">Pricing</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -65,8 +58,8 @@ const Footer = () => {
                             <h5>Contact Us</h5>
                             <ul>
                                 <li><a href="tel:+918743987787"><PhoneRing size={24} className="me-2" fill='rgb(var(--color-primary-green))' /> +91 874 398 7787</a></li>
-                                <li><a href="mailto:info@website.com"><Envelope size={24} className="me-2" fill='rgb(var(--color-primary-green))' /> info@website.com</a></li>
-                                <li><a href="mailto:info@website.com"><Location size={24} className="me-2" fill='rgb(var(--color-primary-green))' />  Fertility Work, Sector 44, Gurugram, Haryana, India</a></li>
+                                    <li><a href="mailto:surajsh64@gmail.com"><Envelope size={24} className="me-2" fill='rgb(var(--color-primary-green))' /> surajsh64@gmail.com</a></li>
+                                <li><a href="/contact"><Location size={24} className="me-2" fill='rgb(var(--color-primary-green))' />  Fertility World, Sector 44, Gurugram, Haryana, India</a></li>
                             </ul>
                         </div>
                     </div>
@@ -77,8 +70,8 @@ const Footer = () => {
                             <p className="text-white-50 mb-0">©2024 Fertility World. All Rights Reserved.</p>
                             <div className="important-link mt-2 mt-md-0">
                                 <ul className="d-inline-flex position-relative mb-0">
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                    <li><a href="/terms">Terms & Conditions</a></li>
                                     <li><a href="#">Disclaimer</a></li>
                                 </ul>
                             </div>

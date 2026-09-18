@@ -10,7 +10,7 @@ const CallToAction = () => {
                                 <span className="srv-subtitle text-white mb-3">Why Choose Fertility World</span>
                                 <h3 className="mb-2 fw-bold text-white">Your journey, Our Commitment</h3>
                                 <p className="text-white">we are a dynamic and customer-centric export and ensuring that goods flow effortlessly across borders.</p>
-                                <a href="#" data-sidebtn="true" className="callaction px-3 py-2 rounded-3 blankBtn d-inline-flex flex-nowrap">Know More About Us <ArrowRightStroke size={24} className="ms-2" /></a>
+                                <a href="/about" data-sidebtn="true" className="callaction px-3 py-2 rounded-3 blankBtn d-inline-flex flex-nowrap">Know More About Us <ArrowRightStroke size={24} className="ms-2" /></a>
                             </div>
                         </div>
                         <div className="col-lg-8 col-md-6">

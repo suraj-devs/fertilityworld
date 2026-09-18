@@ -1,0 +1,4 @@
+# Copy this file to .dev.vars for local Worker preview.
+# CONTACT_FROM must use a domain verified for Cloudflare Email Service.
+CONTACT_TO=surajsh64@gmail.com
+CONTACT_FROM=noreply@fertilityworld.in

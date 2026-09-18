@@ -8,7 +8,7 @@ const Header = ({ currentPage, onNavigate }) => {
                     <div className="header-wrapper">
                         <div className="main-logo">
                             <span className="mobile_m_bar d-block d-md-none"><i className="fa fa-bars"></i></span>
-                            <a href=""><img src="media/we-care-logo.jpg" alt="We Care" width="" height="" /></a>
+                            <a href="/" onClick={(event) => { event.preventDefault(); onNavigate('home') }}><img src="/media/we-care-logo.png" alt="Fertility World" width="" height="" /></a>
                             <div className="call-nav d-block d-md-none ">
                                 <div className="d-flex align-items-center">
                                     <a href="tel:+918743987787" className="alink fw-medium"><PhoneRing size={24} className="me-md-2" /><span>+91 874 398 7787</span></a>
@@ -19,81 +19,42 @@ const Header = ({ currentPage, onNavigate }) => {
                             <div className="menubar">
                                 <ul className="navbar-block">
                                     <li className="mobile_menu_bar"><svg height="50" width="50" className="svg-inline--fa fa-xmark" data-prefix="fas" data-icon="xmark" role="img" viewBox="0 0 384 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"></path></svg></li>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="/" onClick={(event) => { event.preventDefault(); onNavigate('home') }}>Home</a></li>
+                                    <li><a href="/about" onClick={(event) => { event.preventDefault(); onNavigate('about') }}>About Us</a></li>
                                     <li className="dropdown-list">
-                                        <a href="">Services</a>
+                                        <a href="/services" onClick={(event) => { event.preventDefault(); onNavigate('services') }}>Services</a>
                                         <i className="drop-plus" hidden>+</i>
                                         <ul className="sublist">
-                                            <li className="dropdown-list"><a href="javascript:void(0)">Cancer Care</a>
-                                                <i className="drop-plus" hidden>+</i>
-                                                <ul className="sublist">
-                                                    <li><a href="#">Breast Cancer</a></li>
-                                                    <li><a href="#">Blood Cancer</a></li>
-                                                    <li><a href="#">Brain Cancer</a></li>
-                                                    <li><a href="#">Gastrointestinal Cancer</a></li>
-                                                    <li><a href="#">Gynecologic Cancer</a></li>
-                                                    <li><a href="#">Head &amp; Neck Cancer</a></li>
-                                                    <li><a href="#">Musculoskeletal Cancer</a></li>
-                                                    <li><a href="#">Paediatric Cancer</a></li>
-                                                    <li><a href="#">Thoracic Cancer</a></li>
-                                                    <li><a href="#">Uro-Oncology</a></li>
-                                                </ul>
-                                            </li>
-                                            <li className="dropdown-list"><a href="javascript:void(0)">Heart &amp; Vascular Sciences</a>
-                                                <i className="drop-plus" hidden>+</i>
-                                                <ul className="sublist">
-                                                    <li><a href="#">Arrhythmia</a></li>
-                                                    <li><a href="#">Cholesterol</a></li>
-                                                    <li><a href="#">Heart Attack</a></li>
-                                                    <li><a href="#">Heart Failure</a></li>
-                                                    <li><a href="#">Hypertension</a></li>
-                                                </ul>
-                                            </li>
-                                            <li className="dropdown-list"><a href="javascript:void(0)">Musculoskeletal Sciences</a>
-                                                <i className="drop-plus" hidden>+</i>
-                                                <ul className="sublist">
-                                                    <li><a href="#">Arthritis</a></li>
-                                                    <li><a href="#">Back Pain</a></li>
-                                                    <li><a href="#">Cervical Spondylosis</a></li>
-                                                    <li><a href="#">Disc Diseases</a></li>
-                                                    <li><a href="#">Osteoporosis</a></li>
-                                                    <li><a href="#">Spinal Fractures &amp; Paral</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="/service/ivf" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:ivf') }}>IVF Treatment</a></li>
+                                            <li><a href="/service/icsi" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:icsi') }}>ICSI Treatment</a></li>
+                                            <li><a href="/service/iui" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:iui') }}>IUI Treatment</a></li>
+                                            <li><a href="/service/egg-freezing" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:egg-freezing') }}>Egg Freezing</a></li>
+                                            <li><a href="/service/male-diagnosis" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:male-diagnosis') }}>Male Fertility Diagnosis</a></li>
+                                            <li><a href="/service/genetic-testing" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:genetic-testing') }}>Genetic Testing</a></li>
+                                            <li><a href="/service/donor-programs" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:donor-programs') }}>Donor Programs</a></li>
+                                            <li><a href="/service/surrogacy" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:surrogacy') }}>Surrogacy Programs</a></li>
                                         </ul>
                                     </li>
-                                    <li className="dropdown-list"><a href="">Procedures</a>
+                                    <li className="dropdown-list"><a href="/service-list" onClick={(event) => { event.preventDefault(); onNavigate('service-list') }}>All Treatments</a>
                                         <i className="drop-plus" hidden>+</i>
                                         <ul className="sublist">
-                                            <li><a href="#">CAR T-Cell Therapy</a></li>
-                                            <li><a href="#">Bariatric Surgery</a></li>
-                                            <li><a href="#">Bone Marrow Transplant (BMT)</a></li>
-                                            <li><a href="#">Brain Stroke Treatment</a></li>
-                                            <li><a href="#">Brain Tumour Surgery</a></li>
-                                            <li><a href="#">Breast Reduction Surgery</a></li>
-                                            <li><a href="#">Cardiac Valve Replacement Surgery</a></li>
-                                            <li><a href="#">Cataract Surgery</a></li>
-                                            <li><a href="#">Chemotherapy</a></li>
-                                            <li><a href="#">Coronary Angioplasty</a></li>
-                                            <li><a href="#">Coronary Artery Bypass Grafting (CABG)</a></li>
-                                            <li><a href="#">Kidney Transplant</a></li>
-                                            <li><a href="#">Laparoscopic Urologic Surgery</a></li>
-                                            <li><a href="#">Lithotripsy</a></li>
-                                            <li><a href="#">Liver Transplant</a></li>
-                                            <li><a href="#">Lung Transplant</a></li>
-                                            <li><a href="#">Pacemaker Implantation</a></li>
-                                            <li><a href="#">Prostate Laser Surgery</a></li>
+                                                <li><a href="/procedure/car-t-cell-therapy" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:car-t-cell-therapy') }}>CAR T-Cell Therapy</a></li>
+                                                <li><a href="/procedure/bariatric-surgery" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:bariatric-surgery') }}>Bariatric Surgery</a></li>
+                                                <li><a href="/procedure/bone-marrow-transplant" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:bone-marrow-transplant') }}>Bone Marrow Transplant (BMT)</a></li>
+                                                <li><a href="/procedure/brain-stroke-treatment" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:brain-stroke-treatment') }}>Brain Stroke Treatment</a></li>
+                                                <li><a href="/procedure/brain-tumour-surgery" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:brain-tumour-surgery') }}>Brain Tumour Surgery</a></li>
+                                                <li><a href="/procedure/breast-reduction-surgery" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:breast-reduction-surgery') }}>Breast Reduction Surgery</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="/blog-list" onClick={(event) => { event.preventDefault(); onNavigate('blog-list') }}>Fertility Blog</a></li>
+                                    <li><a href="/contact" onClick={(event) => { event.preventDefault(); onNavigate('contact') }}>Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div className="call-nav d-none d-md-block ">
                             <div className="d-flex align-items-center">
                                 <a href="tel:+918743987787" className="alink fw-medium"><PhoneRing size={24} className="me-md-2" /><span>+91 874 398 7787</span></a>
-                                <a href="#" className="callaction px-3 py-2 rounded-3 ms-3">Book Appointment</a>
+                                <a href="/contact" className="callaction px-3 py-2 rounded-3 ms-3">Book Appointment</a>
                             </div>
                         </div>
                     </div>
