@@ -141,6 +141,7 @@ header{
                             transition: all 0.3s ease-in-out;
                         }
                     }
+                    &.is-open {left: 0;opacity: 1;}
                 }
                 & > ul {display: flex;align-items: center;list-style: none;padding: 0;
                     & > li {position: relative;margin: 15px auto;
@@ -194,7 +195,7 @@ header{
                         }
                         @media (width <= 991px) {
                             &::after, & .dropdown-list::after{display: none !important;}
-                            & i.drop-plus {display: block !important;position: absolute;right: 10px;top: 0px;height: auto;width: 25px;text-align: center;line-height: normal;color: rgb(var(--color-dgreen));font-weight: 700;font-size: 28px;padding: 0px 0;background-color: rgb(var(--green-color));}
+                            & button.drop-plus {display: block !important;position: absolute;right: 10px;top: 0px;height: auto;width: 25px;text-align: center;line-height: normal;color: rgb(var(--color-dgreen));font-weight: 700;font-size: 28px;padding: 0px 0;background-color: rgb(var(--green-color));border: 0;cursor: pointer;}
                         }
                     }
                     & .dropdown-list {
@@ -218,9 +219,9 @@ header{
     }
 }
 @media (max-width: 991px) {
-    .sublist {display: none;width: 100%;top: 100%;margin: 0px 0 0 !important;transition: var(--transition);}
+    .sublist {display: block;width: 100%;top: 100%;margin: 0px 0 0 !important;max-height: 0;overflow: hidden;opacity: 0;visibility: hidden;transition: max-height 0.35s ease, opacity 0.2s ease, visibility 0s linear 0.35s !important;}
     ul.sublist ul.sublist {left: 0 !important;margin: 0 0 !important;background: none;box-shadow: none;border: none;}
-    ul.sublist.active {display: block;opacity: 1;visibility: visible;}
+    ul.sublist.active {max-height: 1000px;opacity: 1;visibility: visible;transition: max-height 0.35s ease, opacity 0.2s ease, visibility 0s !important;}
 }
 
 /* Navigation bar dropdown End */

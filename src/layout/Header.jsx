@@ -1,13 +1,17 @@
+import { useState } from 'react';
 import { PhoneRing } from '@boxicons/react';
 // import as * bootstrap from 'bootstrap'
 const Header = ({ currentPage, onNavigate }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState(null);
+
     return (
         <>
             <header className="site-header">
                 <div className="header-container">
                     <div className="header-wrapper">
                         <div className="main-logo">
-                            <span className="mobile_m_bar d-block d-md-none"><i className="fa fa-bars"></i></span>
+                            <button type="button" className="mobile_m_bar d-block d-md-none" aria-label="Open navigation menu" aria-expanded={isMenuOpen} aria-controls="primary-navigation" onClick={() => setIsMenuOpen(true)}><i className="fa fa-bars"></i></button>
                             <a href="/" onClick={(event) => { event.preventDefault(); onNavigate('home') }}><img src="/media/we-care-logo.png" alt="Fertility World" width="" height="" /></a>
                             <div className="call-nav d-block d-md-none ">
                                 <div className="d-flex align-items-center">
@@ -16,15 +20,15 @@ const Header = ({ currentPage, onNavigate }) => {
                             </div>
                         </div>
                         <div className="header-navbar">
-                            <div className="menubar">
+                            <div id="primary-navigation" className={`menubar${isMenuOpen ? ' is-open' : ''}`} onClick={() => { setIsMenuOpen(false); setOpenDropdown(null); }}>
                                 <ul className="navbar-block">
                                     <li className="mobile_menu_bar"><svg height="50" width="50" className="svg-inline--fa fa-xmark" data-prefix="fas" data-icon="xmark" role="img" viewBox="0 0 384 512" aria-hidden="true" data-fa-i2svg=""><path fill="currentColor" d="M55.1 73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L147.2 256 9.9 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192.5 301.3 329.9 438.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.8 256 375.1 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192.5 210.7 55.1 73.4z"></path></svg></li>
                                     <li><a href="/" onClick={(event) => { event.preventDefault(); onNavigate('home') }}>Home</a></li>
                                     <li><a href="/about" onClick={(event) => { event.preventDefault(); onNavigate('about') }}>About Us</a></li>
                                     <li className="dropdown-list">
                                         <a href="/services" onClick={(event) => { event.preventDefault(); onNavigate('services') }}>Services</a>
-                                        <i className="drop-plus" hidden>+</i>
-                                        <ul className="sublist">
+                                        <button type="button" className="drop-plus d-lg-none" aria-label="Toggle services submenu" aria-expanded={openDropdown === 'services'} aria-controls="services-submenu" onClick={(event) => { event.stopPropagation(); setOpenDropdown(openDropdown === 'services' ? null : 'services'); }}>{openDropdown === 'services' ? '-' : '+'}</button>
+                                        <ul id="services-submenu" className={`sublist${openDropdown === 'services' ? ' active' : ''}`}>
                                             <li><a href="/service/ivf" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:ivf') }}>IVF Treatment</a></li>
                                             <li><a href="/service/icsi" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:icsi') }}>ICSI Treatment</a></li>
                                             <li><a href="/service/iui" onClick={(event) => { event.preventDefault(); onNavigate('service-detail:iui') }}>IUI Treatment</a></li>
@@ -36,8 +40,8 @@ const Header = ({ currentPage, onNavigate }) => {
                                         </ul>
                                     </li>
                                     <li className="dropdown-list"><a href="/service-list" onClick={(event) => { event.preventDefault(); onNavigate('service-list') }}>All Treatments</a>
-                                        <i className="drop-plus" hidden>+</i>
-                                        <ul className="sublist">
+                                        <button type="button" className="drop-plus d-lg-none" aria-label="Toggle all treatments submenu" aria-expanded={openDropdown === 'treatments'} aria-controls="treatments-submenu" onClick={(event) => { event.stopPropagation(); setOpenDropdown(openDropdown === 'treatments' ? null : 'treatments'); }}>{openDropdown === 'treatments' ? '-' : '+'}</button>
+                                        <ul id="treatments-submenu" className={`sublist${openDropdown === 'treatments' ? ' active' : ''}`}>
                                                 <li><a href="/procedure/car-t-cell-therapy" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:car-t-cell-therapy') }}>CAR T-Cell Therapy</a></li>
                                                 <li><a href="/procedure/bariatric-surgery" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:bariatric-surgery') }}>Bariatric Surgery</a></li>
                                                 <li><a href="/procedure/bone-marrow-transplant" onClick={(event) => { event.preventDefault(); onNavigate('procedure-detail:bone-marrow-transplant') }}>Bone Marrow Transplant (BMT)</a></li>
